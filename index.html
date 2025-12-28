@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Gasolineras y Puntos de Recarga - País Vasco</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="filtros">
+        <h3>🔍 Filtros de búsqueda</h3>
+        
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="mostrarGasolineras" checked>
+                <label for="mostrarGasolineras">⛽ Gasolineras</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="mostrarPuntosRecarga" checked>
+                <label for="mostrarPuntosRecarga">⚡ Puntos de recarga</label>
+            </div>
+        </div>
+        
+        <div class="filtro-row">
+            <div class="filtro-item">
+                <label for="filtroProvincia">Provincia:</label>
+                <select id="filtroProvincia">
+                    <option value="todas">Todas</option>
+                    <option value="ARABA/ÁLAVA">Álava</option>
+                    <option value="BIZKAIA">Bizkaia</option>
+                    <option value="GIPUZKOA">Gipuzkoa</option>
+                </select>
+            </div>
+            <div class="filtro-item">
+                <label for="filtroMunicipio">Municipio:</label>
+                <select id="filtroMunicipio">
+                    <option value="todos">Todos</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filtro-row">
+            <div class="filtro-item">
+                <label for="filtroCombustible">Tipo de combustible:</label>
+                <select id="filtroCombustible">
+                    <option value="todos">Todos</option>
+                    <option value="ninguno">Ninguno (solo recarga)</option>
+                    <option value="gasoleoA">Gasóleo A</option>
+                    <option value="gasolina95">Gasolina 95</option>
+                    <option value="gasolina98">Gasolina 98</option>
+                </select>
+            </div>
+            <div class="filtro-item">
+                <label for="filtroPotenciaRecarga">Potencia recarga:</label>
+                <select id="filtroPotenciaRecarga">
+                    <option value="todas">Todas</option>
+                    <option value="rapida">Rápida (≥50kW)</option>
+                    <option value="lenta">Lenta (<50kW)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="contador"></div>
+
+        <div class="leyenda">
+            <div class="leyenda-item">
+                <img src="http://maps.google.com/mapfiles/ms/micons/gas.png" alt="Gasolinera">
+                <span>Gasolinera</span>
+            </div>
+            <div class="leyenda-item">
+                <img src="http://maps.google.com/mapfiles/ms/micons/green.png" alt="Punto recarga">
+                <span>Punto de recarga eléctrica</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading">Cargando datos...</div>
+    <div id="map"></div>
+
+    <script src="scripts/app.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzB4vqdmN1KChPicpG4phohVo4ROIXG4o&callback=initMap&loading=async">
+    </script>
+</body>
+</html>
